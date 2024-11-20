@@ -15,9 +15,20 @@ app.use('/api/auth', authRoutes);
 
 // Database Connection
 mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((error) => console.error('MongoDB connection error:', error));
+
+// Default Route for Health Check
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'API is working' });
+});
+
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong', error: err.message });
+});
 
 // Start Server
 const PORT = process.env.PORT || 5000;
