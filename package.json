@@ -1,16 +1,15 @@
 {
   "name": "eternalvault_backend",
   "version": "1.0.0",
+  "description": "A backend service for EternalVault using Node.js, Express, and MongoDB.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["backend", "eternalvault", "nodejs", "mongodb", "express"],
+  "author": "Your Name",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
